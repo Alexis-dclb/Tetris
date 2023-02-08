@@ -5,7 +5,9 @@ import Cube from './Cube'
 
 
 export default class GeometryT {
-  constructor() {
+  constructor(height) {
+    this.height = height
+
     this.experience = new Experience()
     this.scene = this.experience.scene
     this.physicWorld = this.experience.physicWorld
@@ -40,7 +42,8 @@ export default class GeometryT {
     this.cubeBody.addShape(this.cubeShape, new CANNON.Vec3(1, 0, 0))
     this.cubeBody.addShape(this.cubeShape, new CANNON.Vec3(2, 0, 0))
     this.cubeBody.addShape(this.cubeShape, new CANNON.Vec3(1, 1, 0))
-    this.cubeBody.position.set(0,8,0)
+    console.log(this.height);
+    this.cubeBody.position.set(0,this.height +5 ,0)
     this.physicWorld.world.addBody(this.cubeBody)
     this.objectsToUpdate.push({ group: this.group, body: this.cubeBody })
     
